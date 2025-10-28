@@ -99,7 +99,7 @@
 
 | # | Role | Task |
 |---|------|------|
-| 1 | As a **visitor** | I want to **sign up** for an account |
+| 1 | As a **user** | I want to **sign up** for an account |
 | 2 | As a **user** | I want to **login** to my account |
 | 3 | As a **user** | I want to **logout** from my account |
 | 4 | As a **user** | I want to **view** my profile information |
