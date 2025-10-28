@@ -3,9 +3,11 @@
     <img src="https://github.com/user-attachments/assets/0284af1b-bf15-408c-b724-98868f976667" alt="General Assembly" height="80"/>
   <a href="https://sda.edu.sa/">
   </a><img width="500" height="80" alt="Sda-logo-color" src="https://github.com/user-attachments/assets/5edb2838-4fe6-4b18-b80d-706b31f56a64" />
-
 </p>
+    
+## Router table 
 
+<details open>
 
 ##  Authentication
 
@@ -79,12 +81,14 @@
 | `GET` | `/reviews/:id` | show | Show review details |
 | `GET` | `/users/reviews` | index | Get all reviews by current user |
 | `DELETE` | `/reviews/:id` | destroy | Delete own review |
-----------------------------
+
+</details>
+
 <div align="center">
   <img src="for-readme/ERDraghad.png" width="900" alt="ERD Diagram" />
 </div>
 
-# User Stories
+## User Stories
 
 <details open>
 
@@ -126,11 +130,10 @@
 | 33 | As a **user** | I want to **view** my own reviews |
 | 34 | As a **user** | I want to **delete** my reviews |
 
-</details>
-
 #### Review 
 - User can write review **ONLY after completing service**
 - Reviews will apear for all **visitors in public page**
 - Rating with **1-5 stars** and write **comments and feedback**
 
 </details>
+
