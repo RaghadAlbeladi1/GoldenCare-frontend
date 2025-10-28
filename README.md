@@ -5,7 +5,7 @@
   </a><img width="500" height="80" alt="Sda-logo-color" src="https://github.com/user-attachments/assets/5edb2838-4fe6-4b18-b80d-706b31f56a64" />
 </p>
     
-## Router table 
+## RESTful Routing Table
 
 <details open>
 
@@ -83,6 +83,10 @@
 | `DELETE` | `/reviews/:id` | destroy | Delete own review |
 
 </details>
+
+# ERD Diagram w/ three models, User Model, & Relationships
+
+- user model, appointmet mode (CRUD),Reviews (CRUD), Caregivers, Electronic Health Record(EHR)
 
 <div align="center">
   <img src="for-readme/ERDraghad.png" width="900" alt="ERD Diagram" />
