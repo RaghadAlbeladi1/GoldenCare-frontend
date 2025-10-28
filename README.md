@@ -80,7 +80,9 @@
 | `GET` | `/users/reviews` | index | Get all reviews by current user |
 | `DELETE` | `/reviews/:id` | destroy | Delete own review |
 ----------------------------
-
+<div align="center">
+  <img src="for-readme/ERDraghad.png" width="900" alt="ERD Diagram" />
+</div>
 
 # User Stories
 
