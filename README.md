@@ -86,7 +86,7 @@
 
 </details>
 
-# ERD Diagram w/ three models, User Model, & Relationships
+### ERD Diagram w/ three models, User Model, & Relationships
 
 - user model, appointmet mode (CRUD),Reviews (CRUD), Caregivers, Electronic Health Record(EHR)
 
