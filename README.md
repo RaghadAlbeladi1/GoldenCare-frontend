@@ -23,7 +23,6 @@
 | `/appointments` | `AppointmentsPage` | Lists current and past appointments for logged-in user. |
 | `/appointments/new` | `NewAppointmentPage` | Form to book a new appointment. |
 | `/ehr` | `EHRPage` | Displays patient’s health records, notes, and medications. |
-| `/reviews` | `ReviewsPage` | Shows public reviews and allows logged-in users to add theirs. |
 | `/login` | `LoginPage` | User login page. |
 | `/register` | `RegisterPage` | Registration for new users. |
 | `/profile` | `ProfilePage` | Displays and allows editing of user profile. |
