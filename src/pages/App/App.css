@@ -1,0 +1,56 @@
+/* 🌿 App.css — تصميم عام لموقع GoldenCare */
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Tajawal', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* الصفحة الرئيسية */
+.home-container {
+  text-align: center;
+  padding: 120px 20px 80px; /* ↑ عشان ما يغطي الناف بار الصفحة */
+  background-color: #f8fafc;
+}
+
+/* العناوين */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1e88e5;
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: #42a5f5;
+}
+
+/* الفقرات */
+p {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* الأزرار */
+button {
+  margin-top: 35px;
+  padding: 12px 36px;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(30, 136, 229, 0.3);
+}
+
+button:hover {
+  background-color: #1565c0;
+  box-shadow: 0px 6px 10px rgba(30, 136, 229, 0.4);
+}
