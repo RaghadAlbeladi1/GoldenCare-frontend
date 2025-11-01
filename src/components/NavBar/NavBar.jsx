@@ -24,9 +24,13 @@ export default function NavBar({ user, setUser }) {
         <li><Link to="/services">Services</Link></li>
         <li><Link to="/caregivers">Caregivers</Link></li>
         {user ? (
-          <li><button onClick={handleLogout} className="login-btn" type="button">Logout</button></li>
+          <>
+            <li><Link to="/appointments">Appointments</Link></li>
+            <li><Link to="/ehr">EHR</Link></li>
+            <li><button onClick={handleLogout} className="nav-link-btn" type="button">Logout</button></li>
+          </>
         ) : (
-          <li><Link to="/login" className="login-btn">Login</Link></li>
+          <li><Link to="/signup" className="nav-link-btn">Login / Sign Up</Link></li>
         )}
       </ul>
     </nav>

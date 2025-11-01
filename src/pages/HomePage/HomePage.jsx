@@ -78,14 +78,6 @@ export default function HomePage() {
           </div>
         )}
       </div>
-      
-      <div className="home-hero-content">
-        <h1>Healthcare services for a connected healthcare system</h1>
-        <p>
-          At GoldenCare, we make connected care possible so that better outcomes
-          and experiences are easier to achieve.
-        </p>
-      </div>
     </section>
   );
 }

@@ -17,10 +17,14 @@ export async function signup(formData) {
 export async function login(formData) {
     try {
         const loggedInUser = await sendRequest(`${baseURL}login/`, "POST", formData);
-        localStorage.setItem("accessToken", loggedInUser.access)
-        localStorage.setItem("refreshToken", loggedInUser.refresh)
+        
+        if (loggedInUser.access && loggedInUser.refresh) {
+            localStorage.setItem("accessToken", loggedInUser.access);
+            localStorage.setItem("refreshToken", loggedInUser.refresh);
+        }
+        
         return loggedInUser.user
-    } catch (err) {
+    } catch (error) {
         localStorage.removeItem("accessToken")
         localStorage.removeItem("refreshToken")
         return null
@@ -29,15 +33,14 @@ export async function login(formData) {
 
 export async function getUser() {
     try {
-        const token = localStorage.getItem('accessToken');
-        if (token) {
+        const accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
             const response = await sendRequest(`${baseURL}token/refresh/`)
             localStorage.setItem('accessToken', response.access);
             return response.user
         }
         return null;
-    } catch (err) {
-        console.log(err);
+    } catch (error) {
         return null;
     }
 }

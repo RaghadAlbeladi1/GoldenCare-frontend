@@ -5,13 +5,21 @@ import "./CaregiversPage.css";
 export default function CaregiversPage() {
   const [caregivers, setCaregivers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchCaregivers() {
       try {
+        setError(null);
         const data = await fetchCaregiversAPI();
-        setCaregivers(data);
-      } catch (err) {
+        if (data && Array.isArray(data)) {
+          setCaregivers(data);
+        } else {
+          setCaregivers([]);
+        }
+      } catch (error) {
+        setError(error.message || 'Failed to load caregivers. Please try again later.');
+        setCaregivers([]);
       } finally {
         setLoading(false);
       }
@@ -19,7 +27,29 @@ export default function CaregiversPage() {
     fetchCaregivers();
   }, []);
 
-  if (loading) return null;
+  if (loading) {
+    return (
+      <section className="caregivers-list">
+        <div className="page-status">Loading caregivers...</div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="caregivers-list">
+        <div className="page-status error">{error}</div>
+      </section>
+    );
+  }
+
+  if (caregivers.length === 0) {
+    return (
+      <section className="caregivers-list">
+        <div className="page-status">No caregivers available at the moment.</div>
+      </section>
+    );
+  }
 
   return (
     <section className="caregivers-list">

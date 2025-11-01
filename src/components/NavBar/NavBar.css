@@ -52,23 +52,38 @@
   color: #1e88e5;
 }
 
-.login-btn {
-  background-color: #1e88e5;
-  color: white;
-  padding: 10px 24px;
-  border-radius: 6px;
-  font-weight: 600;
+.nav-link-btn {
+  background: transparent !important;
   border: none;
+  color: rgb(30, 136, 229);
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: 14px;
   cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  transition: background-color 0.3s;
+  padding: 0;
+  font-family: inherit;
+  transition: none;
   white-space: nowrap;
 }
 
-.login-btn:hover {
-  background-color: #1565c0;
+.nav-link-btn:hover {
+  color: rgb(21, 101, 192);
+  text-decoration: underline;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-links .nav-link-btn {
+  text-decoration: underline;
+  color: rgb(30, 136, 229);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.navbar-links .nav-link-btn:hover {
+  color: rgb(21, 101, 192);
+  text-decoration: underline;
 }
 
 .profile-menu {

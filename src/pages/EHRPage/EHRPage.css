@@ -1,0 +1,380 @@
+.ehr-page {
+  padding: 20px 24px;
+  margin-top: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ehr-page .page-header {
+  margin: 10px 0 20px 0;
+}
+
+.ehr-section {
+  background-color: white;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ehr-section h2 {
+  color: rgb(30, 136, 229);
+  margin-bottom: 24px;
+  font-size: 24px;
+  border-bottom: 2px solid rgb(30, 136, 229);
+  padding-bottom: 12px;
+}
+
+.patient-details {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.patient-image {
+  flex-shrink: 0;
+}
+
+.patient-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.patient-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  flex: 1;
+}
+
+.patient-details p {
+  margin: 8px 0;
+  color: rgb(51, 51, 51);
+}
+
+.patient-details strong {
+  color: rgb(30, 136, 229);
+}
+
+.appointments-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.history-item-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  background-color: rgb(249, 250, 251);
+  border-radius: 8px;
+  border-left: 4px solid rgb(30, 136, 229);
+  flex-wrap: wrap;
+}
+
+.history-item-row.completed-service {
+  background-color: rgb(227, 242, 253) !important;
+  border-left-color: rgb(66, 165, 245) !important;
+}
+
+.history-service-name {
+  color: rgb(30, 136, 229);
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 150px;
+}
+
+.history-detail-item {
+  margin: 0;
+  color: rgb(51, 51, 51);
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.history-detail-item strong {
+  color: rgb(30, 136, 229);
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background-color: rgb(255, 193, 7);
+  color: rgb(51, 51, 51);
+}
+
+.status-confirmed {
+  background-color: rgb(30, 136, 229);
+  color: white;
+}
+
+.status-completed {
+  background-color: rgb(76, 175, 80);
+  color: white;
+}
+
+.status-cancelled {
+  background-color: rgb(185, 28, 28);
+  color: white;
+}
+
+.history-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.history-details p {
+  margin: 0;
+  color: rgb(51, 51, 51);
+  white-space: nowrap;
+}
+
+.history-details strong {
+  color: rgb(30, 136, 229);
+}
+
+.history-ehr {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(229, 231, 235);
+}
+
+.ehr-display div {
+  margin-bottom: 16px;
+}
+
+.ehr-display strong {
+  color: rgb(30, 136, 229);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ehr-display p {
+  color: rgb(68, 68, 68);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.no-ehr-data {
+  color: rgb(156, 163, 175);
+  font-style: italic;
+}
+
+.ehr-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ehr-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ehr-edit-form label strong {
+  color: rgb(30, 136, 229);
+}
+
+.ehr-edit-form textarea {
+  padding: 12px;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.ehr-edit-form textarea:focus {
+  outline: none;
+  border-color: rgb(30, 136, 229);
+  box-shadow: 0px 0px 0px 2px rgba(30, 136, 229, 0.1);
+}
+
+.ehr-edit-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: rgb(30, 136, 229);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+  padding: 0;
+}
+
+.btn-link:hover {
+  color: rgb(21, 101, 192);
+}
+
+.no-data {
+  color: rgb(156, 163, 175);
+  text-align: center;
+  padding: 40px;
+  font-style: italic;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-header h2 {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.section-header .btn.submit {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgb(30, 136, 229);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  min-width: auto;
+  height: auto;
+}
+
+.section-header .btn.submit:hover {
+  background-color: rgb(21, 101, 192);
+}
+
+.notes-section {
+  margin-bottom: 32px;
+}
+
+.add-note-form {
+  margin-bottom: 24px;
+  padding: 12px;
+  background-color: rgb(249, 250, 251);
+  border-radius: 8px;
+  max-width: 500px;
+}
+
+.add-note-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  margin-bottom: 8px;
+  min-height: 80px;
+}
+
+.add-note-form textarea:focus {
+  outline: none;
+  border-color: rgb(30, 136, 229);
+  box-shadow: 0px 0px 0px 2px rgba(30, 136, 229, 0.1);
+}
+
+.add-note-form .btn.submit {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: rgb(30, 136, 229);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-note-form .btn.submit:hover {
+  background-color: rgb(21, 101, 192);
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  background-color: rgb(249, 250, 251);
+  border-radius: 8px;
+  border-left: 4px solid rgb(30, 136, 229);
+}
+
+.note-content {
+  flex: 1;
+}
+
+.note-content p {
+  margin: 0 0 8px 0;
+  color: rgb(51, 51, 51);
+  line-height: 1.6;
+}
+
+.note-date {
+  font-size: 12px;
+  color: rgb(156, 163, 175);
+}
+
+.btn-link.danger {
+  color: rgb(185, 28, 28);
+  margin-left: 16px;
+}
+
+.btn-link.danger:hover {
+  color: rgb(153, 27, 27);
+}
+
+@media (max-width: 768px) {
+  .ehr-page {
+    padding: 15px 16px;
+    margin-top: 10px;
+  }
+  
+  .ehr-page .page-header {
+    margin: 5px 0 15px 0;
+  }
+  
+  .ehr-section {
+    padding: 20px;
+  }
+  
+  .history-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .patient-details {
+    flex-direction: column;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+

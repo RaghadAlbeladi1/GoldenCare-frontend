@@ -4,48 +4,103 @@
   gap: 18px;
   padding: 80px 24px 40px;
   margin-top: 60px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 80px 16px 40px;
+  }
 }
 
 .service-card {
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgb(229, 231, 235);
   border-radius: 12px;
   overflow: hidden;
-  background: #fff;
+  background: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.service-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
 .service-card-image img {
   width: 100%;
-  height: 170px;
+  height: 100%;
   object-fit: cover;
 }
 
 .service-card-body {
-  padding: 14px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 1;
+}
+
+.service-card-body h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+}
+
+.service-card-body p {
+  margin: 0;
+  font-size: 14px;
+  color: rgb(107, 114, 128);
+  line-height: 1.5;
+  flex: 1;
 }
 
 .service-card-actions {
   margin-top: auto;
 }
 
-.btn-primary {
-  background: #5b4bdb;
-  color: #fff;
-  border: none;
-  padding: 10px 12px;
-  border-radius: 8px;
+.service-book-link {
+  background: none !important;
+  border: none !important;
+  color: rgb(30, 136, 229) !important;
+  text-decoration: underline !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
   cursor: pointer;
+  padding: 0 !important;
+  font-family: inherit;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.service-book-link:hover {
+  color: rgb(21, 101, 192) !important;
+  text-decoration: underline !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .page-status {
+  text-align: center;
   padding: 24px;
+  color: rgb(68, 68, 68);
 }
 
 .page-status.error {
-  color: #b91c1c;
+  color: rgb(185, 28, 28);
 }
+
 

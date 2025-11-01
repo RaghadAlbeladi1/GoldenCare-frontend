@@ -20,9 +20,8 @@
 | `/services/:id` | `ServiceDetailsPage` | Shows details for one specific service (linked to caregiver). |
 | `/caregivers` | `CaregiversPage` | Lists all caregivers. |
 | `/caregivers/:id` | `CaregiverDetailsPage` | Shows caregiver profile and linked services. |
-| `/appointments` | `AppointmentsPage` | Lists current and past appointments for logged-in user. |
-| `/appointments/new` | `NewAppointmentPage` | Form to book a new appointment. |
-| `/ehr` | `EHRPage` | Displays patient’s health records, notes, and medications. |
+| `/appointments` | `AppointmentsPage` | Lists, creates, edits, and manages appointments for logged-in user. |
+| `/ehr` | `EHRPage` | Displays patient's health records, notes, and medications. |
 | `/login` | `LoginPage` | User login page. |
 | `/register` | `RegisterPage` | Registration for new users. |
 | `/profile` | `ProfilePage` | Displays and allows editing of user profile. |
