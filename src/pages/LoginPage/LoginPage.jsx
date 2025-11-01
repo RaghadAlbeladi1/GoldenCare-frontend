@@ -122,7 +122,7 @@ export default function LoginPage({ user, setUser }) {
         alert("Invalid email or password");
       }
     } catch (error) {
-      alert("Login failed. Please check your email and password.");
+      alert("Login failed.");
     } finally {
       setIsLoading(false);
     }

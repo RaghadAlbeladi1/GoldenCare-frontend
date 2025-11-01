@@ -64,7 +64,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s;
+  transition: background 0.4s;
 }
 
 .slider-btn:hover {
@@ -95,7 +95,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.4s;
 }
 
 .dot.active {
