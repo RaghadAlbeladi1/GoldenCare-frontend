@@ -1,0 +1,49 @@
+.caregivers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+  padding: 80px 24px 40px;
+  margin-top: 60px;
+}
+
+.caregiver-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+}
+
+.caregiver-card-image {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.caregiver-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.caregiver-card-services ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.caregiver-card-services li {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+
+

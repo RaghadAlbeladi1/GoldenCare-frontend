@@ -1,0 +1,51 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  padding: 80px 24px 40px;
+  margin-top: 60px;
+}
+
+.service-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.service-card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-card-actions {
+  margin-top: auto;
+}
+
+.btn-primary {
+  background: #5b4bdb;
+  color: #fff;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.page-status {
+  padding: 24px;
+}
+
+.page-status.error {
+  color: #b91c1c;
+}
+

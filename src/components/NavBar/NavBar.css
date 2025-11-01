@@ -3,29 +3,27 @@
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
-  padding: 12px 30px;
+  padding: 12px 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .logo-section {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo {
-  width: 45px;
-}
-
-.app-name {
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: #1e88e5;
+  width: 160px;
+  height: auto;
+  object-fit: contain;
 }
 
 .navbar-links {
@@ -33,6 +31,13 @@
   align-items: center;
   gap: 25px;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.navbar-links li {
+  flex-shrink: 0;
 }
 
 .navbar-links a {
@@ -40,6 +45,7 @@
   color: #333;
   font-weight: 500;
   transition: color 0.3s;
+  white-space: nowrap;
 }
 
 .navbar-links a:hover {
@@ -49,9 +55,16 @@
 .login-btn {
   background-color: #1e88e5;
   color: white;
-  padding: 7px 14px;
+  padding: 10px 24px;
   border-radius: 6px;
   font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 .login-btn:hover {
