@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import * as appointmentsAPI from "../../utilities/appointments-api";
 import * as servicesAPI from "../../utilities/services-api";
 import * as caregiversAPI from "../../utilities/caregivers-api";
 import "./AppointmentsPage.css";
 
 export default function AppointmentsPage({ user }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [appointments, setAppointments] = useState([]);
   const [services, setServices] = useState([]);
   const [caregivers, setCaregivers] = useState([]);
@@ -27,11 +29,26 @@ export default function AppointmentsPage({ user }) {
     if (user) {
       fetchAppointments();
       fetchServicesAndCaregivers();
+      if (searchParams.get('new') === 'true') {
+        setFormData({
+          service: "",
+          caregiver: "",
+          date: "",
+          time: "",
+          duration_type: "1day",
+          start_date: "",
+          notes: "",
+        });
+        setEditingId(null);
+        setFormErrors({});
+        setShowForm(true);
+        setSearchParams({});
+      }
     } else {
       setLoading(false);
       setError("Please login to view your appointments.");
     }
-  }, [user]);
+  }, [user, searchParams]);
 
   async function fetchAppointments() {
     try {

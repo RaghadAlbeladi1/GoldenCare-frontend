@@ -55,7 +55,7 @@ export default function ServicesPage({ user }) {
 
   function handleBookAppointment() {
     if (user) {
-      navigate("/appointments");
+      navigate("/appointments?new=true");
     } else {
       navigate("/signup");
     }

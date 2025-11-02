@@ -27,7 +27,7 @@ export default function NavBar({ user, setUser }) {
           <>
             <li><Link to="/appointments">Appointments</Link></li>
             <li><Link to="/ehr">EHR</Link></li>
-            <li><button onClick={handleLogout} className="nav-link-btn" type="button">Logout</button></li>
+            <li><Link to="#" onClick={handleLogout} className="nav-link-btn">Logout</Link></li>
           </>
         ) : (
           <li><Link to="/signup" className="nav-link-btn">Login / Sign Up</Link></li>

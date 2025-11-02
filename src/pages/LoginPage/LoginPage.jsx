@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 import * as usersAPI from "../../utilities/users-api";
+import * as ehrAPI from "../../utilities/ehr-api";
 import loginImage from "../../assets/images/HomePage2.jpg";
 import "./LoginPage.css";
 
@@ -77,7 +78,7 @@ export default function LoginPage({ user, setUser }) {
       updateErrors.confirmPassword = target.value !== signupData.password ? "Your passwords must match" : "";
     }
     if (target.name === 'email') {
-      updateErrors.email = !target.value.includes("@") ? "Your email must be a real email / include the '@' symbol." : "";
+      updateErrors.email = !target.value.includes("@") ? "Your email must include @" : "";
     }
     if (target.name === 'phone') {
       updateErrors.phone = target.value.length < 10 ? "Phone number must be at least 10 digits" : "";
@@ -138,28 +139,47 @@ export default function LoginPage({ user, setUser }) {
     
     setIsLoading(true);
     try {
-      const { confirmPassword, patient_id, ...signupDataWithoutConfirm } = signupData;
+      const { confirmPassword, patient_id, age, ...signupDataWithoutConfirm } = signupData;
       const username = signupData.name.replace(/\s+/g, '').toLowerCase() || `user${patient_id}`;
+      
+      const ageValue = (age && typeof age === 'string' && age.trim() !== "") ? parseInt(age) : null;
+      
       const signupPayload = {
         ...signupDataWithoutConfirm,
         username: username,
-        patient_id_input: patient_id
+        patient_id_input: patient_id,
+        age: ageValue
       };
+      
       const newUser = await usersAPI.signup(signupPayload);
-      const ehrUser = await ehrAPI.creatnote(signupPayload);
+      
+      try {
+        const noteText = `Patient registered: ${signupData.name || 'N/A'}, Age: ${signupData.age || 'N/A'}, Gender: ${signupData.gender || 'N/A'}, Location: ${signupData.location || 'N/A'}`;
+        await ehrAPI.createNote({ note_text: noteText });
+      } catch (ehrError) {
+      }
+      
       setUser(newUser);
       setSignupData(signupInitialState);
       setErrors(signupInitialState);
       navigate("/");
     } catch (error) {
       setUser(null);
-      if (error.username) {
-        alert(`Username error: ${error.username}`);
+      let errorMessage = "Signup failed";
+      
+      if (error.error) {
+        errorMessage = error.error;
+      } else if (error.username) {
+        errorMessage = `Username error: ${error.username}`;
       } else if (error.email) {
-        alert(`Email error: ${error.email}`);
-      } else {
-        alert("Signup failed");
+        errorMessage = `Email error: ${error.email}`;
+      } else if (error.details) {
+        errorMessage = JSON.stringify(error.details, null, 2);
+      } else if (typeof error === 'object') {
+        errorMessage = JSON.stringify(error, null, 2);
       }
+      
+      alert(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -204,14 +224,16 @@ export default function LoginPage({ user, setUser }) {
                 </button>
                 <div className="signup-link-wrapper">
                   <p>Don't have an account?</p>
-                  <button
-                    type="button"
-                    onClick={() => setShowLoginForm(false)}
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowLoginForm(false);
+                    }}
                     className="signup-link"
-                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                   >
                     SignUp
-                  </button>
+                  </a>
                 </div>
               </form>
             ) : (
@@ -374,14 +396,16 @@ export default function LoginPage({ user, setUser }) {
                 </button>
                 <div className="signup-link-wrapper">
                   <p>Already have an account?</p>
-                  <button
-                    type="button"
-                    onClick={() => setShowLoginForm(true)}
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowLoginForm(true);
+                    }}
                     className="signup-link"
-                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                   >
                     Login
-                  </button>
+                  </a>
                 </div>
               </form>
             )}
