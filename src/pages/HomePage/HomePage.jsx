@@ -298,7 +298,15 @@ export default function HomePage({ user }) {
                 <div key={review.id} className="review-item">
                   <div className="review-stars">{renderStars(review.rating)}</div>
                   <p className="review-comment">{review.comment}</p>
-                  <p className="review-author">@family for {review.user?.username || "User"}</p>
+                  <div className="review-author-container">
+                    <span className="review-family-text">family for @</span>
+                    <img 
+                      src={review.user?.image || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3407.jpg"} 
+                      alt={review.user?.name || review.user?.username || "User"} 
+                      className="review-author-image"
+                    />
+                    <p className="review-author">{review.user?.name || review.user?.username || "User"}</p>
+                  </div>
                   {user && review.user?.id === user.id && (
                     <div className="review-actions">
                       <a href="#" onClick={(e) => { e.preventDefault(); handleEditReview(review.id); }} className="simple-link-btn">
