@@ -219,7 +219,7 @@ export default function AppointmentsPage({ user }) {
           <div className="appointments-form-section">
             <div className="form-header">
               <h2>{editingId ? "Edit Appointment" : "Book New Appointment"}</h2>
-              <button onClick={handleCancelForm} className="simple-link-btn">Cancel</button>
+              <a href="#" onClick={(e) => { e.preventDefault(); handleCancelForm(); }} className="simple-link-btn">Cancel</a>
             </div>
             <form onSubmit={handleSubmit} className="appointment-form">
               <div className="form-group">
@@ -327,21 +327,21 @@ export default function AppointmentsPage({ user }) {
               </div>
 
               <div className="form-actions">
-                <button type="button" onClick={handleCancelForm} className="simple-link-btn">
+                <a href="#" onClick={(e) => { e.preventDefault(); handleCancelForm(); }} className="simple-link-btn">
                   Cancel
-                </button>
-                <button type="submit" className="btn submit">
+                </a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleSubmit(e); }} className="simple-link-btn">
                   {editingId ? "Update Appointment" : "Book Appointment"}
-                </button>
+                </a>
               </div>
             </form>
           </div>
         ) : (
           <>
             <div className="appointments-header">
-              <button onClick={handleNewAppointment} className="btn submit">
+              <a href="#" onClick={(e) => { e.preventDefault(); handleNewAppointment(); }} className="simple-link-btn">
                 Book New Appointment
-              </button>
+              </a>
             </div>
             {appointments.length === 0 ? (
               <div className="page-status">
@@ -377,18 +377,20 @@ export default function AppointmentsPage({ user }) {
                       )}
                     </div>
                     <div className="appointment-actions">
-                      <button
-                        onClick={() => handleEdit(appointment.id)}
+                      <a
+                        href="#"
+                        onClick={(e) => { e.preventDefault(); handleEdit(appointment.id); }}
                         className="simple-link-btn"
                       >
                         Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(appointment.id)}
+                      </a>
+                      <a
+                        href="#"
+                        onClick={(e) => { e.preventDefault(); handleDelete(appointment.id); }}
                         className="simple-link-btn danger"
                       >
                         Cancel
-                      </button>
+                      </a>
                     </div>
                   </div>
                 ))}
