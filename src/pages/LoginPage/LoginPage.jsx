@@ -146,6 +146,7 @@ export default function LoginPage({ user, setUser }) {
         patient_id_input: patient_id
       };
       const newUser = await usersAPI.signup(signupPayload);
+      const ehrUser = await ehrAPI.creatnote(signupPayload);
       setUser(newUser);
       setSignupData(signupInitialState);
       setErrors(signupInitialState);
@@ -157,7 +158,7 @@ export default function LoginPage({ user, setUser }) {
       } else if (error.email) {
         alert(`Email error: ${error.email}`);
       } else {
-        alert("Signup failed. Please check your information and try again.");
+        alert("Signup failed");
       }
     } finally {
       setIsLoading(false);

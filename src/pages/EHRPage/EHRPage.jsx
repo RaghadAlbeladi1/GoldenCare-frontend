@@ -17,7 +17,7 @@ export default function EHRPage({ user }) {
           ehrAPI.getEHR().catch(() => null),
           appointmentsAPI.index().catch(() => []),
         ]);
-        
+        console.log("Fetched EHR Data:", ehrData);
         if (ehrData) {
           setEhr(ehrData);
           if (ehrData.appointments && Array.isArray(ehrData.appointments)) {
