@@ -5,7 +5,82 @@
   </a><img width="500" height="80" alt="Sda-logo-color" src="https://github.com/user-attachments/assets/5edb2838-4fe6-4b18-b80d-706b31f56a64" />
 </p>
 
- ### Backend Repository    [GoldenCare Backend](https://github.com/RaghadAlbeladi1/GoldenCare-backend)
+# GoldenCare Frontend
+
+## Project Description
+
+GoldenCare is a comprehensive platform connecting families and caregivers to provide home-based senior care. The frontend provides an intuitive user interface for families to browse services, book caregiver appointments, manage health records, and interact with the GoldenCare ecosystem seamlessly. Built with modern React, the application offers a responsive and user-friendly experience for managing senior care needs.
+
+## Repository Description
+
+This repository contains the React frontend application for GoldenCare. The application provides a single-page application (SPA) interface for users to interact with the GoldenCare backend API, featuring authentication, service browsing, appointment management, and electronic health record viewing.
+
+## Tech Stack
+
+- **Framework**: React 19.1.1
+- **Routing**: React Router DOM 7.9.4
+- **Build Tool**: Vite 7.1.7
+- **Language**: JavaScript (ES6+)
+- **Styling**: CSS3
+- **Development Tools**:
+  - ESLint (Code linting)
+  - Vite Plugin React (Fast refresh)
+
+## Backend Repository
+
+[GoldenCare Backend](https://github.com/RaghadAlbeladi1/GoldenCare-backend)
+
+## Frontend Site
+
+**Local Development**: `http://localhost:5173`
+
+**Live Site**: (Deployment URL if available)
+
+## Installation Instructions
+
+### Using Docker (Recommended)
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/RaghadAlbeladi1/GoldenCare-frontend.git
+   cd GoldenCare-frontend
+   ```
+
+2. **Navigate to project root** (where docker-compose.yml is located):
+   ```bash
+   cd ..
+   cd capstone-project
+   ```
+
+3. **Build and run containers**:
+   ```bash
+   docker-compose up --build
+   ```
+
+4. **Access the application**:
+   - Frontend: `http://localhost:5173`
+
+### Manual Installation (Without Docker)
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Run development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+4. **Preview production build**:
+   ```bash
+   npm run preview
+   ```
 
 ## RESTful Routing Table
 
@@ -83,4 +158,36 @@
 - Rating with **1-5 stars** and write **comments and feedback**
 
 </details>
+
+## IceBox Features
+
+Features planned for future implementation:
+
+- Community Forum: Platform for families to connect, ask questions about best doctors, share experiences, and support each other
+- Virtual Clinic: Virtual consultation interface for remote healthcare visits
+- Advanced Devices Marketplace: Browse and request advanced medical devices, integrated with contracted caregivers
+- Emergency Response System: One-tap emergency button with instant alerts to caregivers and medical professionals
+- IoT Integration Dashboard: Real-time monitoring interface for connected IoT health devices
+- AI Health Assistant: Chat-based AI agent to answer health questions and provide recommendations
+- Comprehensive Health Dashboard: Real-time monitoring dashboard for families to track health metrics, appointments, and care status
+- Enhanced UI/UX: Modern design system with animations and transitions optimized for elderly users
+- Mobile App: Native mobile applications for iOS and Android
+- Dark Mode: Theme switcher for better accessibility
+- Real-time Notifications: In-app notifications for appointments and updates
+- Dashboard Analytics: Visual analytics for appointment history and service usage
+- Advanced Search: Filter and search services with multiple criteria
+- Chat Integration: Direct messaging between families and caregivers
+- Calendar View: Visual calendar interface for appointment management
+- Location Services: Map integration for finding nearby caregivers
+- Image Upload: Upload profile pictures and document images
+- Internationalization: Multi-language support (Arabic/English)
+- Accessibility: Enhanced accessibility features for elderly users
+- Progressive Web App: PWA capabilities for offline functionality
+- Onboarding Tutorial: Interactive guide for new users
+- Usage Statistics: Personal dashboard with service usage insights
+- HL7 Integration: Health Level Seven (HL7) standard integration for seamless interoperability with hospitals, clinics, and other healthcare systems. HL7 enables standardized data exchange of patient records, lab results, prescriptions, and clinical documents, ensuring compatibility and secure communication between GoldenCare platform and external healthcare providers
+- Comprehensive Patient Records: Progress notes, vitals tracking, and complete integrated patient information dashboard for holistic care management
+- AI Medical Coder Agent: Intelligent AI agent for medical coding that accurately writes medical codes, calculates insurance claims, and ensures proper billing documentation
+- Vitals Monitoring Interface: Real-time tracking and visualization of patient vital signs with historical data analysis
+- Progress Notes System: Digital documentation interface for patient care progress, treatment updates, and medical observations
 
