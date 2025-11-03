@@ -6,7 +6,7 @@
 </p>
 
 # GoldenCare Frontend
-
+### Backend Repository    [GoldenCare Backend](https://github.com/RaghadAlbeladi1/GoldenCare-backend)
 ## Project Description
 
 GoldenCare is a comprehensive platform connecting families and caregivers to provide home-based senior care. The frontend provides an intuitive user interface for families to browse services, book caregiver appointments, manage health records, and interact with the GoldenCare ecosystem seamlessly. Built with modern React, the application offers a responsive and user-friendly experience for managing senior care needs.
@@ -25,10 +25,6 @@ This repository contains the React frontend application for GoldenCare. The appl
 - **Development Tools**:
   - ESLint (Code linting)
   - Vite Plugin React (Fast refresh)
-
-## Backend Repository
-
-[GoldenCare Backend](https://github.com/RaghadAlbeladi1/GoldenCare-backend)
 
 ## Frontend Site
 
