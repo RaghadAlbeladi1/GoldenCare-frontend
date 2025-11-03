@@ -177,7 +177,6 @@ Features planned for future implementation:
 - Location Services: Map integration for finding nearby caregivers
 - Image Upload: Upload profile pictures and document images
 - Internationalization: Multi-language support (Arabic/English)
-- Accessibility: Enhanced accessibility features for elderly users
 - Progressive Web App: PWA capabilities for offline functionality
 - Onboarding Tutorial: Interactive guide for new users
 - Usage Statistics: Personal dashboard with service usage insights
