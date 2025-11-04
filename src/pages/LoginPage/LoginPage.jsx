@@ -32,6 +32,7 @@ export default function LoginPage({ user, setUser }) {
     age: "", 
     gender: "", 
     location: "", 
+    location_link: "",
     image: "" 
   };
   const [signupData, setSignupData] = useState(signupInitialState);
@@ -45,10 +46,15 @@ export default function LoginPage({ user, setUser }) {
     age: "", 
     gender: "", 
     location: "", 
+    location_link: "",
     image: ""
   });
   let disabledSubmitBtn = Object.values(errors).every(val => val === "") && 
-    Object.values(signupData).every(val => val !== "") ? false : true;
+    Object.entries(signupData).every(([key, val]) => {
+      // location_link is optional, so skip it from validation
+      if (key === 'location_link') return true;
+      return val !== "";
+    }) ? false : true;
 
   function handleLoginChange(evt) {
     setLoginData({ ...loginData, [evt.target.name]: evt.target.value });
@@ -129,17 +135,25 @@ export default function LoginPage({ user, setUser }) {
       
       const ageValue = (age && typeof age === 'string' && age.trim() !== "") ? parseInt(age) : null;
       
+      // Combine location and location_link
+      let finalLocation = signupData.location || '';
+      if (signupData.location_link && signupData.location_link.trim() !== '') {
+        finalLocation = finalLocation ? `${finalLocation} | ${signupData.location_link.trim()}` : signupData.location_link.trim();
+      }
+      
       const signupPayload = {
         ...signupDataWithoutConfirm,
         username: username,
         patient_id_input: patient_id,
-        age: ageValue
+        age: ageValue,
+        location: finalLocation
       };
+      delete signupPayload.location_link;
       
       const newUser = await usersAPI.signup(signupPayload);
       
       try {
-        const noteText = `Patient registered: ${signupData.name || 'N/A'}, Age: ${signupData.age || 'N/A'}, Gender: ${signupData.gender || 'N/A'}, Location: ${signupData.location || 'N/A'}`;
+        const noteText = `Patient registered: ${signupData.name || 'N/A'}, Age: ${signupData.age || 'N/A'}, Gender: ${signupData.gender || 'N/A'}, Location: ${finalLocation || 'N/A'}`;
         await ehrAPI.createNote({ note_text: noteText });
       } catch (ehrError) {
       }
@@ -347,17 +361,31 @@ export default function LoginPage({ user, setUser }) {
             </div>
 
             <div className="signup-field full-width">
-              <label htmlFor="id_location">Location</label>
-              <input 
-                type="text" 
+              <label htmlFor="id_location">Location *</label>
+              <select 
                 id="id_location"
                 value={signupData.location} 
                 name="location" 
-                placeholder="Al-Ahsa, Saudi Arabia | Riyadh, Saudi Arabia" 
-                maxLength="200" 
-                onChange={handleSignupChange} 
-              />
+                onChange={handleSignupChange}
+                required
+                className="signup-select"
+              >
+                <option value="">Select Location</option>
+                <option value="Riyadh, Saudi Arabia">Riyadh, Saudi Arabia</option>
+                <option value="Al-Ahsa, Saudi Arabia">Al-Ahsa, Saudi Arabia</option>
+              </select>
               {errors.location && <p className="error-text">{errors.location}</p>}
+              <input 
+                type="text" 
+                id="id_location_link"
+                value={signupData.location_link} 
+                name="location_link" 
+                placeholder="https://maps.google.com/..." 
+                maxLength="500" 
+                onChange={handleSignupChange} 
+                style={{ marginTop: '8px' }}
+              />
+              {errors.location_link && <p className="error-text">{errors.location_link}</p>}
             </div>
 
             <div className="signup-field full-width">

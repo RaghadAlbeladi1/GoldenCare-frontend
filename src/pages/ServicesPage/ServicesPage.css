@@ -72,25 +72,25 @@
 }
 
 .service-book-link {
-  background: none !important;
-  border: none !important;
-  color: rgb(30, 136, 229) !important;
-  text-decoration: underline !important;
-  font-weight: 400 !important;
-  font-size: 14px ;
+  background: none;
+  border: none;
+  color: rgb(30, 136, 229);
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: 14px;
   cursor: pointer;
   padding: 0px;
   font-family: inherit;
-  transition: none !important;
-  box-shadow: none !important;
+  transition: color 0.3s;
+  box-shadow: none;
 }
 
 .service-book-link:hover {
-  color: rgb(21, 101, 192) !important;
-  text-decoration: underline !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
+  color: rgb(21, 101, 192);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .page-status {

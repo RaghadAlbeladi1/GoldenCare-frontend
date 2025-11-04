@@ -44,21 +44,17 @@
   gap: 6px;
 }
 
-.caregiver-card-services ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 6px 0 0;
-  padding: 0;
-  list-style: none;
+.caregiver-card-body h3 {
+  margin: 0 0 4px 0;
 }
 
-.caregiver-card-services li {
-  background: #f3f4f6;
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-size: 12px;
+.caregiver-card-body p:first-of-type {
+  margin: 0;
+  font-weight: normal;
+  font-size: 14px;
+  color: rgb(107, 114, 128);
 }
+
 
 .page-status {
   text-align: center;

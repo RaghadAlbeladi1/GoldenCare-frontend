@@ -61,14 +61,7 @@ export default function CaregiversPage() {
             <p>{caregiver.speciality}</p>
             {caregiver.bio && <p>{caregiver.bio}</p>}
             {Array.isArray(caregiver.services) && caregiver.services.length > 0 && (
-              <div className="caregiver-card-services">
-                <span>Services:</span>
-                <ul>
-                  {caregiver.services.map((service) => (
-                    <li key={service.id}>{service.service_name}</li>
-                  ))}
-                </ul>
-              </div>
+              <p><strong>Services:</strong> {caregiver.services.map((service) => service.service_name).join(', ')}</p>
             )}
           </div>
         </div>

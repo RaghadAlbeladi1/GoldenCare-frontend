@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff !important;
+  background-color: #ffffff;
   padding: 12px 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: fixed;
@@ -53,9 +53,9 @@
 }
 
 .nav-link-btn {
-  background: none !important;
+  background: none;
   border: none;
-  color: rgb(30, 136, 229);
+  color: #1e88e5;
   text-decoration: none;
   font-weight: 500;
   font-size: inherit;
@@ -67,8 +67,8 @@
 }
 
 .nav-link-btn:hover {
-  color: rgb(30, 136, 229);
-  background: none !important;
+  color: #1e88e5;
+  background: none;
   border: none;
   box-shadow: none;
   text-decoration: none;
@@ -76,13 +76,13 @@
 
 .navbar-links .nav-link-btn {
   text-decoration: none;
-  color: rgb(30, 136, 229);
+  color: #1e88e5;
   font-weight: 500;
   font-size: inherit;
 }
 
 .navbar-links .nav-link-btn:hover {
-  color: rgb(30, 136, 229);
+  color: #1e88e5;
   text-decoration: none;
 }
 
