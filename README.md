@@ -123,7 +123,7 @@ This repository contains the React frontend application for GoldenCare. The appl
 - user model, appointmet mode (CRUD),Reviews (CRUD), Caregivers, Electronic Health Record(EHR)
 
 <div align="center">
-  <img src="for-readme/ERDraghad.png" width="900" alt="ERD Diagram" />
+  <img src="./for-readme/ERDraghad.png" width="900" alt="ERD Diagram" />
 </div>
 
 ## User Stories
