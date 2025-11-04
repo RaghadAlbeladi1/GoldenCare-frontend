@@ -37,25 +37,44 @@ This repository contains the React frontend application for GoldenCare. The appl
 
 ### Using Docker (Recommended)
 
-1. **Clone the repository**:
+1. **Prerequisites**:
+   - Docker Desktop installed and running
+   - Docker Compose installed (included with Docker Desktop)
+
+2. **Clone the repository**:
    ```bash
    git clone https://github.com/RaghadAlbeladi1/GoldenCare-frontend.git
    cd GoldenCare-frontend
    ```
 
-2. **Navigate to project root** (where docker-compose.yml is located):
+3. **Navigate to project root** (where docker-compose.yml is located):
    ```bash
-   cd ..
-   cd capstone-project
+   cd ../capstone-project
    ```
 
-3. **Build and run containers**:
+4. **Build and run containers**:
    ```bash
    docker-compose up --build
    ```
 
-4. **Access the application**:
+5. **Access the application**:
    - Frontend: `http://localhost:5173`
+   - Backend API: `http://localhost:8000`
+
+6. **View logs**:
+   ```bash
+   docker-compose logs -f frontend
+   ```
+
+7. **Stop containers**:
+   ```bash
+   docker-compose down
+   ```
+
+8. **Stop and remove volumes** (clean database):
+   ```bash
+   docker-compose down -v
+   ```
 
 ### Manual Installation (Without Docker)
 
