@@ -1,7 +1,7 @@
 .page-header {
   display: flex;
   align-items: center;
-  margin: 120px 20px 20px 20px;
+  margin: 65px 20px 20px 20px;
 }
 
 .page-header h1 {
@@ -26,13 +26,13 @@
 }
 
 .appointments-header {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .appointments-form-section {
   background-color: white;
   border-radius: 12px;
-  padding: 40px;
+  padding: 24px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 40px;
 }
@@ -40,6 +40,7 @@
 .form-header {
   display: flex;
   justify-content: space-between;
+  padding-top:30px;
   align-items: center;
   margin-bottom: 32px;
 }
@@ -52,6 +53,7 @@
 
 .appointment-form {
   max-width: 100%;
+  padding-top:30px;
 }
 
 .form-group {
@@ -87,7 +89,6 @@
 
 .form-input:disabled {
   background-color: rgb(249, 250, 251);
-  cursor: not-allowed;
   opacity: 0.6;
 }
 
@@ -144,7 +145,6 @@
 
 .btn.submit:disabled {
   background-color: rgb(204, 204, 204);
-  cursor: not-allowed;
   opacity: 0.6;
 }
 
@@ -246,7 +246,7 @@
 }
 
 .simple-link-btn {
-  background: transparent !important;
+  background: transparent ;
   border: none;
   color: rgb(30, 136, 229);
   text-decoration: underline;
@@ -261,7 +261,7 @@
 .simple-link-btn:hover {
   color: rgb(21, 101, 192);
   text-decoration: underline;
-  background: transparent !important;
+  background: transparent ;
   border: none;
   box-shadow: none;
 }
@@ -273,7 +273,7 @@
 .simple-link-btn.danger:hover {
   color: rgb(185, 28, 28);
   text-decoration: underline;
-  background: transparent !important;
+  background: transparent;
   border: none;
   box-shadow: none;
 }

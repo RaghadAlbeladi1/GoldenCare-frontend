@@ -11,7 +11,6 @@ export default function LoginPage({ user, setUser }) {
   const [showLoginForm, setShowLoginForm] = useState(false);
   const loginInitialState = { email: "", password: "" };
   const [loginData, setLoginData] = useState(loginInitialState);
-  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
@@ -19,7 +18,6 @@ export default function LoginPage({ user, setUser }) {
       navigate("/signup", { replace: true });
     }
     return () => {
-      setShowPassword(false);
       setLoginData(loginInitialState);
     };
   }, [location.pathname]);
@@ -91,23 +89,11 @@ export default function LoginPage({ user, setUser }) {
     setErrors(updateErrors);
   }
 
-  function handleNextClick(evt) {
-    evt.preventDefault();
-    if (loginData.email.trim()) {
-      setShowPassword(true);
-    }
-  }
-
   async function handleLoginSubmit(evt) {
     evt.preventDefault();
     evt.stopPropagation();
     
     if (isLoading) {
-      return;
-    }
-    
-    if (!showPassword) {
-      handleNextClick(evt);
       return;
     }
     
@@ -117,7 +103,6 @@ export default function LoginPage({ user, setUser }) {
       if (userData) {
         setUser(userData);
         setLoginData(loginInitialState);
-        setShowPassword(false);
         navigate("/");
       } else {
         alert("Invalid email or password");
@@ -205,22 +190,19 @@ export default function LoginPage({ user, setUser }) {
                     onChange={handleLoginChange}
                     className="login-input"
                   />
-                  {showPassword && (
-                    <input
-                      value={loginData.password}
-                      id="id_password"
-                      required
-                      placeholder="Password"
-                      name="password"
-                      type="password"
-                      onChange={handleLoginChange}
-                      className="login-input"
-                      autoFocus
-                    />
-                  )}
+                  <input
+                    value={loginData.password}
+                    id="id_password"
+                    required
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    onChange={handleLoginChange}
+                    className="login-input"
+                  />
                 </div>
                 <button type="submit" className="btn login-btn" disabled={isLoading}>
-                  {isLoading ? "Loading..." : (showPassword ? "Login" : "Next")}
+                  {isLoading ? "Loading..." : "Login"}
                 </button>
                 <div className="signup-link-wrapper">
                   <p>Don't have an account?</p>
