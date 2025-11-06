@@ -52,7 +52,7 @@ export default function AboutPage() {
           <li>Riyadh, Saudi Arabia</li>
           <li>Al-Ahsa, Saudi Arabia</li>
         </ul>
-        <p className="expanding-text">Expanding to more cities across the Kingdom soon.</p>
+        <p className="expanding-text">Link for more cities coming soon.</p>
       </section>
 
       <section className="about-section partners-section">

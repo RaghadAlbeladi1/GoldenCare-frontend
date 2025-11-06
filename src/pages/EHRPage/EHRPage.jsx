@@ -45,6 +45,23 @@ export default function EHRPage({ user }) {
     return `${hour12}:${minutes} ${ampm}`;
   }
 
+  function renderLocation(locationValue) {
+    if (!locationValue) return 'Not provided';
+    const urlMatch = locationValue.match(/https?:\/\/[^\s]+/);
+    if (!urlMatch) return locationValue;
+    const url = urlMatch[0];
+    const text = locationValue
+      .replace(url, '')
+      .replace('|', '')
+      .trim();
+    return (
+      <span>
+        {text && <span>{text} | </span>}
+        <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
+      </span>
+    );
+  }
+
   if (loading) {
     return (
       <div className="page-header">
@@ -90,7 +107,7 @@ export default function EHRPage({ user }) {
               <p><strong>Phone:</strong> {ehr.phone || "Not provided"}</p>
               <p><strong>Age:</strong> {ehr.age || "Not provided"}</p>
               <p><strong>Gender:</strong> {ehr.gender || "Not provided"}</p>
-              <p><strong>Location:</strong> {ehr.location || "Not provided"}</p>
+              <p><strong>Location:</strong> {renderLocation(ehr.location)}</p>
             </div>
           </div>
         ) : (
@@ -107,9 +124,8 @@ export default function EHRPage({ user }) {
         ) : (
           <div className="appointments-timeline">
             {sortedAppointments.map((appointment) => {
-              const isCompleted = appointment.status === 'completed' || appointment.status === 'confirmed';
               return (
-              <div key={appointment.id} className={`history-item-row ${isCompleted ? 'completed-service' : ''}`}>
+              <div key={appointment.id} className="history-item-row">
                 <h3 className="history-service-name">{appointment.service?.service_name || "Service"}</h3>
                 <p className="history-detail-item">
                   <strong>Start Date:</strong>{" "}

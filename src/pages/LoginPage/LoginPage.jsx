@@ -51,7 +51,6 @@ export default function LoginPage({ user, setUser }) {
   });
   let disabledSubmitBtn = Object.values(errors).every(val => val === "") && 
     Object.entries(signupData).every(([key, val]) => {
-      // location_link is optional, so skip it from validation
       if (key === 'location_link') return true;
       return val !== "";
     }) ? false : true;
@@ -135,7 +134,6 @@ export default function LoginPage({ user, setUser }) {
       
       const ageValue = (age && typeof age === 'string' && age.trim() !== "") ? parseInt(age) : null;
       
-      // Combine location and location_link
       let finalLocation = signupData.location || '';
       if (signupData.location_link && signupData.location_link.trim() !== '') {
         finalLocation = finalLocation ? `${finalLocation} | ${signupData.location_link.trim()}` : signupData.location_link.trim();

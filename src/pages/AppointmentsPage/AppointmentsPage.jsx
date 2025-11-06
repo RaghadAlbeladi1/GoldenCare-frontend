@@ -192,6 +192,15 @@ export default function AppointmentsPage({ user }) {
     }
   }
 
+  function formatTimeTo12Hour(timeString) {
+    if (!timeString) return '';
+    const [hours, minutes] = timeString.split(':');
+    const hour = parseInt(hours, 10);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const hour12 = hour % 12 || 12;
+    return `${hour12}:${minutes} ${ampm}`;
+  }
+
   const filteredCaregivers = formData.service
     ? caregivers.filter(caregiver =>
         caregiver.services.some(s => s.id === parseInt(formData.service))
@@ -353,8 +362,10 @@ export default function AppointmentsPage({ user }) {
                   <div key={appointment.id} className="appointment-card">
                     <div className="appointment-header">
                       <h3>{appointment.service.service_name}</h3>
-                      <span className="status-badge status-confirmed">
-                        ✓
+                      <span className={`status-badge status-${appointment.status || 'confirmed'}`}>
+                        {appointment.status === 'completed' ? '✓' : 
+                         appointment.status === 'cancelled' ? '✕' :
+                         appointment.status === 'pending' ? '⏳' : '✓'}
                       </span>
                     </div>
                     <div className="appointment-details">
@@ -364,7 +375,7 @@ export default function AppointmentsPage({ user }) {
                       {appointment.end_date && (
                         <p><strong>End Date:</strong> {new Date(appointment.end_date).toLocaleDateString()}</p>
                       )}
-                      <p><strong>Time:</strong> {appointment.time}</p>
+                      <p><strong>Time:</strong> {formatTimeTo12Hour(appointment.time)}</p>
                       {appointment.duration_type && (
                         <p><strong>Duration:</strong> {
                           appointment.duration_type === '1day' ? '1 Day' :
