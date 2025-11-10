@@ -144,9 +144,14 @@ export default function LoginPage({ user, setUser }) {
         username: username,
         patient_id_input: patient_id,
         age: ageValue,
-        location: finalLocation
+        location: finalLocation,
+        name: signupData.name,
+        phone: signupData.phone,
+        gender: signupData.gender,
+        image: signupData.image
       };
       delete signupPayload.location_link;
+      delete signupPayload.confirmPassword;
       
       const newUser = await usersAPI.signup(signupPayload);
       

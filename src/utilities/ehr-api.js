@@ -22,3 +22,7 @@ export async function deleteNote(id) {
   return sendRequest(`${baseURL}notes/${id}/`, "DELETE");
 }
 
+export async function updateEHR(formData) {
+  return sendRequest(baseURL, "PUT", formData);
+}
+

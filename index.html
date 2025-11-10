@@ -6,11 +6,301 @@
   <link rel="icon" type="image/png" href="/logo.png?v=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GoldenCare</title>
+  <style>
+    body * {
+      font-family: 'Poppins', 'Tajawal', sans-serif !important;
+    }
+
+    [id*="chat"],
+    [class*="chat"],
+    [id*="widget"],
+    [class*="widget"],
+    [id*="velents"],
+    [class*="velents"] {
+    }
+    
+    button[class*="chat"],
+    div[class*="chat-button"],
+    a[class*="chat"],
+    [id*="chat-button"],
+    [class*="chat-button"],
+    [id*="chat-icon"],
+    [class*="chat-icon"] {
+      background-image: url('/logo.png') !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+    }
+    [id*="chat"] img,
+    [class*="chat"] img,
+    [id*="widget"] img,
+    [class*="widget"] img,
+    button.bubble img,
+    button[class*="bubble"] img,
+    img[src*="Logo-Icon"],
+    img[src*="logo-icon"],
+    img[src="/Logo-Icon.svg"],
+    img[src*="Logo-Icon.svg"] {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    [style*="position: fixed"][style*="bottom"],
+    [style*="position: fixed"][style*="right"] {
+    }
+  </style>
+  <script>
+    window.addEventListener('load', function() {
+      function customizeWidget() {
+        const replaceText = (node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            if (node.textContent.includes('Velents')) {
+              node.textContent = node.textContent.replace(/Velents/gi, 'GoldenCare');
+            }
+          } else {
+            node.childNodes.forEach(replaceText);
+          }
+        };
+        
+        replaceText(document.body);
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.nodeType === Node.ELEMENT_NODE) {
+                replaceText(node);
+                if (node.tagName === 'IFRAME') {
+                  try {
+                    const iframeDoc = node.contentDocument || node.contentWindow.document;
+                    if (iframeDoc) {
+                      replaceText(iframeDoc.body);
+                    }
+                  } catch (e) {
+                  }
+                }
+              }
+            });
+          });
+        });
+        
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      }
+      
+      customizeWidget();
+      setTimeout(customizeWidget, 1000);
+      setTimeout(customizeWidget, 3000);
+      
+      function customizeChatIcon() {
+        const chatButtons = document.querySelectorAll('button.bubble');
+        
+        chatButtons.forEach(button => {
+          try {
+            const style = window.getComputedStyle(button);
+            const isFloatingButton = style.position === 'fixed' && 
+                                    (style.bottom !== 'auto' || style.right !== 'auto');
+            
+            if (isFloatingButton || button.classList.contains('bubble')) {
+              button.title = 'AI Agent (GoldenCare)';
+              button.setAttribute('aria-label', 'AI Agent (GoldenCare)');
+              
+              const imgs = button.querySelectorAll('img');
+              imgs.forEach(img => {
+                img.remove();
+              });
+              
+              button.innerHTML = '';
+              button.textContent = 'AI Agent (GoldenCare)';
+              button.style.color = '#ffffff';
+              button.style.fontWeight = 'bold';
+            }
+          } catch (e) {
+            console.log('Error customizing chat icon:', e);
+          }
+        });
+        const bubbleImgs = document.querySelectorAll('button.bubble img');
+        bubbleImgs.forEach(img => {
+          img.remove();
+        });
+      }
+      
+      customizeChatIcon();
+      setTimeout(customizeChatIcon, 100);
+      setTimeout(customizeChatIcon, 300);
+      setTimeout(customizeChatIcon, 500);
+      setTimeout(customizeChatIcon, 1000);
+      setTimeout(customizeChatIcon, 2000);
+      setTimeout(customizeChatIcon, 3000);
+      setTimeout(customizeChatIcon, 5000);
+      setTimeout(customizeChatIcon, 7000);
+      setTimeout(customizeChatIcon, 10000);
+      
+      const iconObserver = new MutationObserver(function(mutations) {
+        let shouldUpdate = false;
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              if (node.tagName === 'BUTTON' || 
+                  node.tagName === 'IMG' || 
+                  (node.className && (node.className.includes('bubble') || node.className.includes('chat'))) ||
+                  (node.id && (node.id.includes('chat') || node.id.includes('widget'))) ||
+                  (node.src && node.src.includes('Logo-Icon'))) {
+                shouldUpdate = true;
+              }
+            }
+          });
+          
+          if (mutation.type === 'attributes') {
+            const target = mutation.target;
+            if (target.tagName === 'IMG' && 
+                (target.src && target.src.includes('Logo-Icon'))) {
+              target.style.display = 'none';
+              target.style.visibility = 'hidden';
+              target.style.opacity = '0';
+              target.style.width = '0';
+              target.style.height = '0';
+              target.remove();
+              shouldUpdate = true;
+            }
+          }
+        });
+        if (shouldUpdate) {
+          setTimeout(customizeChatIcon, 50);
+          setTimeout(customizeChatIcon, 200);
+          setTimeout(customizeChatIcon, 500);
+        }
+      });
+      
+      iconObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['src', 'title', 'aria-label', 'class']
+      });
+      
+      const logoIconObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              if (node.tagName === 'BUTTON' && node.classList.contains('bubble')) {
+                const imgs = node.querySelectorAll('img');
+                imgs.forEach(img => img.remove());
+                node.innerHTML = '';
+                node.textContent = 'AI Agent (GoldenCare)';
+                node.style.color = '#ffffff';
+                node.style.fontWeight = 'bold';
+              } else if (node.tagName === 'IMG' && node.closest('button.bubble')) {
+                node.remove();
+              }
+            }
+          });
+        });
+      });
+      
+      logoIconObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: false
+      });
+      
+      setInterval(customizeChatIcon, 1000);
+    });
+  </script>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  
+  <script src="https://velents-shared.s3.us-east-1.amazonaws.com/loader.global.js" 
+    data-agent-id="1"
+    data-auth-token="boddy_raghadalbeladi_PersonalAccessToken_tOqB7GO5mXizsRsUck3kyrxw8uATAiP2xtkqH4qz5c42156c"
+    data-plugin-mode="true"
+    data-widget="https://velents-shared.s3.us-east-1.amazonaws.com/widget.html"
+    data-agent-name="GoldenCare"
+    data-title="GoldenCare AI Assistant"
+    data-icon="http://localhost:5173/logo.png"
+    data-avatar="http://localhost:5173/logo.png"
+    data-image="http://localhost:5173/logo.png"
+    data-logo="http://localhost:5173/logo.png"
+    data-company-name="GoldenCare"
+    data-company_name="GoldenCare">
+  </script>
+  <script>
+    function setCustomerName() {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
+          fetch('http://localhost:8000/users/token/refresh/', {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${accessToken}`
+            }
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.user) {
+              const customerName = data.user.username || data.user.ehr?.name || 'Guest';
+              const widgetScript = document.querySelector('script[data-agent-id="1"]');
+              if (widgetScript) {
+                widgetScript.setAttribute('data-customer-name', customerName);
+                widgetScript.setAttribute('data-customer_name', customerName);
+              }
+              window.velentsCustomerName = customerName;
+              window.velentsCompanyName = 'GoldenCare';
+            }
+          })
+          .catch(err => {
+            const widgetScript = document.querySelector('script[data-agent-id="1"]');
+            if (widgetScript) {
+              widgetScript.setAttribute('data-customer-name', 'Guest');
+              widgetScript.setAttribute('data-customer_name', 'Guest');
+            }
+            window.velentsCustomerName = 'Guest';
+            window.velentsCompanyName = 'GoldenCare';
+          });
+        } else {
+          const widgetScript = document.querySelector('script[data-agent-id="1"]');
+          if (widgetScript) {
+            widgetScript.setAttribute('data-customer-name', 'Guest');
+            widgetScript.setAttribute('data-customer_name', 'Guest');
+          }
+          window.velentsCustomerName = 'Guest';
+          window.velentsCompanyName = 'GoldenCare';
+        }
+      } catch (e) {
+        console.log('Error setting customer name:', e);
+      }
+    }
+    
+    window.addEventListener('load', function() {
+      setCustomerName();
+      setTimeout(setCustomerName, 2000);
+      setTimeout(setCustomerName, 5000);
+    });
+    
+    const originalSetItem = localStorage.setItem;
+    localStorage.setItem = function(key, value) {
+      originalSetItem.apply(this, arguments);
+      if (key === 'accessToken' || key === 'refreshToken') {
+        setTimeout(setCustomerName, 1000);
+      }
+    };
+    
+    const originalRemoveItem = localStorage.removeItem;
+    localStorage.removeItem = function(key) {
+      originalRemoveItem.apply(this, arguments);
+      if (key === 'accessToken' || key === 'refreshToken') {
+        setTimeout(setCustomerName, 1000);
+      }
+    };
+  </script>
 </body>
 
 </html>
