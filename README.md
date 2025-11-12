@@ -10,7 +10,10 @@
 ### Frontend link [ColdenCare](http://localhost:5173/)
 ## Project Description
 
-GoldenCare is a comprehensive platform connecting families and caregivers to provide home-based senior care. The frontend provides an intuitive user interface for families to browse services, book caregiver appointments, manage health records, and interact with the GoldenCare ecosystem seamlessly. Built with modern React, the application offers a responsive and user-friendly experience for managing senior care needs.
+GoldenCare is a comprehensive platform connecting families and caregivers to provide home-based senior care. The frontend provides an intuitive user interface for families to browse services, book caregiver appointments, manage health records, and interact with the GoldenCare ecosystem seamlessly. Built with modern React, the application offers a responsive and user-friendly experience for managing senior care needs.              <div align="center">
+  <img src="./for-readme/image1.png" width="900" alt="ERD Diagram" />
+</div>  
+  
 
 ## Repository Description
 
@@ -46,6 +49,9 @@ This repository contains the React frontend application for GoldenCare. The appl
    git clone https://github.com/RaghadAlbeladi1/GoldenCare-frontend.git
    cd GoldenCare-frontend
    ```
+    <div align="center">
+  <img src="./for-readme/image2.png" width="900" alt="ERD Diagram" />
+</div> 
 
 3. **Navigate to project root** (where docker-compose.yml is located):
    ```bash
